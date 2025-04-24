@@ -48,14 +48,6 @@ ML-Data-Editor-App/
 
 ---
 
-## Features Coming Soon
-
-- Region & Type dropdowns powered by CSV config files
-- Visual charts of progress by region/type
-- Multi-user logging support
-
----
-
 ## How to Run
 
 1️. Clone the Repository:
@@ -73,7 +65,7 @@ cd ML-Data-Editor-App
    ```bash
    streamlit run app.py
    ```
-   
+
 4. Quickrun: Simply double-click `run.bat` to start the app.
 ---
 
@@ -84,6 +76,14 @@ This app is ideal for:
 - ML Engineers and Researchers working with messy field data
 - Teams managing diverse CSV formats from multiple sources
 - Anyone needing a lightweight UI to standardize tabular data
+
+---
+
+## Features In Development
+
+- Region & Type dropdowns powered by CSV config files
+- Visual charts of progress by region/type
+- Multi-user logging support
 
 ---
 
