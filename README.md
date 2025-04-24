@@ -51,22 +51,24 @@ ML-Data-Editor-App/
 ## How to Run
 
 1️. Clone the Repository:
-    ```bash
-    git clone https://github.com/tashrifmahmud/ML-Data-Editor-App.git
-    cd ML-Data-Editor-App
-    ```
+
+  ```bash
+  git clone https://github.com/tashrifmahmud/ML-Data-Editor-App.git
+  cd ML-Data-Editor-App
+  ```
 
 2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
 
-3. Run the app:
+  ```bash
+  pip install -r requirements.txt
+  ```
+
+4. Run the app:
    ```bash
    streamlit run app.py
    ```
 
-4. Quickrun: Simply double-click `run.bat` to start the app.
+6. Quickrun: Simply double-click `run.bat` to start the app.
 ---
 
 
