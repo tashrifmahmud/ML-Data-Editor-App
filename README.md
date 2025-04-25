@@ -84,6 +84,7 @@ This app is ideal for:
 - Region & Type dropdowns powered by CSV config files
 - Visual charts of progress by region/type
 - Multi-user logging support
+- Data type in output file names
 
 ---
 
