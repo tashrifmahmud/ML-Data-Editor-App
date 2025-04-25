@@ -87,12 +87,12 @@ This app is ideal for:
 
 ---
 
-## License
+
 
 [MIT License](LICENSE)
 
 ---
 
-## Author
+
 
 Built by [Tashrif Mahmud](https://www.linkedin.com/in/tashrifmahmud/) | Part of a geophysical ML pipeline project @ Healthcare Systems R&A Inc.
