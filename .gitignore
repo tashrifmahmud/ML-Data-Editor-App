@@ -19,9 +19,11 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Ignore formatted_data folder
+# Ignore output data folders and log folders
 # formatted_data/
 # segmented_data/
 edited_data/
+locations/
+logs/
 
 modified_log.txt
