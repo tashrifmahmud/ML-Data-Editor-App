@@ -50,7 +50,7 @@ ML-Data-Editor-App/
 
 ## How to Run
 
-1️. Clone the Repository:
+1. Clone the Repository:
 ```bash
 git clone https://github.com/tashrifmahmud/ML-Data-Editor-App.git
 cd ML-Data-Editor-App
