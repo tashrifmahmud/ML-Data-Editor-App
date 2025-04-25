@@ -1,2 +1,2 @@
-# Australia Region Folder
-Contains Australia region's output .csv files.
+# USA Region Folder
+Contains USA region's output .csv files.

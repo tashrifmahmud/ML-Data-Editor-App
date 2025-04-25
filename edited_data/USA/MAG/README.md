@@ -1,2 +1,2 @@
-# Ontario, CA Region Folder
-Contains SPEC Data type output .csv files.
+# USA Region Folder
+Contains MAG Data type output .csv files.
