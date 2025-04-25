@@ -17,7 +17,7 @@ A Streamlit-based interactive application for previewing, cleaning, renaming, an
   - `logged_only_files/`
 - Handles large CSVs efficiently (tested with multi-GB files)
 - File consistency checker app to detect duplicates, missing files or other errors
-- Min-Max extractor app to easily find the minimum and maximum values from data
+- Min-Max extractor app to find the minimum and maximum values from data
 
 ---
 
