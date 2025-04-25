@@ -1,0 +1,1 @@
+This folder contains Min-Max extractor log files for errors.

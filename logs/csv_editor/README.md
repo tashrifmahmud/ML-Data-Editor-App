@@ -1,0 +1,1 @@
+This folder contains csv editor daily log files.
