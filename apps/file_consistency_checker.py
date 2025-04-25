@@ -41,7 +41,7 @@ def run():
     else:
         st.success("✅ No duplicates found!")
 
-    # Optional: Files in edited_data not in log
+    # Files in edited_data not in log
     untracked_files = [f for f in file_counts if f not in logged_files]
     st.subheader("📌 Files in Edited Folder NOT recorded in LOG:")
     if untracked_files:
