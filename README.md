@@ -66,7 +66,7 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-6. Quickrun: Simply double-click `run.bat` to start the app.
+5. **Quickrun: Simply double-click `run.bat` to start the app.**
 ---
 
 
