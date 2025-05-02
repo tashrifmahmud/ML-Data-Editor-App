@@ -3,7 +3,6 @@ import pandas as pd
 import os
 from file_handler import list_csv_files, preview_csv
 
-
 def run():
     # Predefined column names
     STANDARD_COLUMNS = ["Coord_X", "Coord_Y", "resistivity", "conductivity", "K_corr", "TH_corr", "U_corr", "mag_res", "mag_dev", "altitude"]
