@@ -88,5 +88,5 @@ st.session_state["edited_folder"] = edited_folder
 
 # Readme
 
-if st.sidebar.button("📘 README"):
+if st.sidebar.button("ℹ️ App Guide"):
     st.session_state["page"] = "README"
