@@ -62,13 +62,13 @@ Accessible from the sidebar:
 
 - **modified_log.txt**: Tracks original base filenames (e.g., `file_1.csv`). Used for progress tracking and unedited file filtering.
 
-- **logs\csv_editor\**: Daily logs of saved or logged files from the CSV Editor. Filenames are grouped by timestamped `.txt` files.
+- **logs\csv_editor**: Daily logs of saved or logged files from the CSV Editor. Filenames are grouped by timestamped `.txt` files.
 
-- **logs\min_max_extractor\**: Stores timestamped error logs for files that couldn’t be read during coordinate extraction.
+- **logs\min_max_extractor**: Stores timestamped error logs for files that couldn’t be read during coordinate extraction.
 
-- **locations\**: Output folder where coordinate summary files (`Locations_YYYY-MM-DD.csv`) are saved.
+- **locations**: Output folder where coordinate summary files (`Locations_YYYY-MM-DD.csv`) are saved.
 
-- **edited_data\logged_only_files\**: Contains dummy `.csv` files for datasets that were marked as “log only” but not edited.
+- **edited_data\logged_only_files**: Contains dummy `.csv` files for datasets that were marked as “log only” but not edited.
                 
 ---
 
