@@ -8,14 +8,12 @@ def run():
     # Predefined column names
     STANDARD_COLUMNS = ["Coord_X", "Coord_Y", "resistivity", "conductivity", "K_corr", "TH_corr", "U_corr", "mag_res", "mag_dev", "altitude"]
 
-
     # Streamlit App
     st.title("CSV Editor & Formatter")
 
-
     # Select project folder
-    data_folder = "data"  # We can change data directory if needed
-
+    data_folder = st.session_state.get("data_folder", "data")
+    edited_folder = st.session_state.get("edited_folder", "edited_data")
 
     # Read log of modified files
     log_path = "modified_log.txt"
@@ -33,7 +31,7 @@ def run():
         show_only_unedited = st.checkbox("Show only unedited CSV files", value=False)
 
     with col2:
-        if st.button("🔄 Reset Column Selections"):
+        if st.button("🔄 Refresh & Update"):
             # Clear all session state keys related to rename/delete/select_all
             keys_to_clear = [k for k in st.session_state.keys() if k.startswith("rename_") or k.startswith("delete_")]
             for k in keys_to_clear:
@@ -95,9 +93,22 @@ def run():
                     if file_name not in logged_files:
                         with open(log_path, "a") as log_file:
                             log_file.write(f"{file_name}\n")
+                    
+                    # Append to edited_files.txt if not already logged
+                    edited_file_log = "edited_files.txt"
+                    if os.path.exists(edited_file_log):
+                        with open(edited_file_log, "r") as f:
+                            already_logged = set(line.strip() for line in f.readlines())
+                    else:
+                        already_logged = set()
+
+                    if file_name not in already_logged:
+                        with open(edited_file_log, "a") as f:
+                            f.write(f"{file_name}\n")
+
 
                     # Save dummy file
-                    dummy_dir = os.path.join("edited_data", "logged_only_files")
+                    dummy_dir = os.path.join(edited_folder, "logged_only_files")
                     os.makedirs(dummy_dir, exist_ok=True)
                     dummy_path = os.path.join(dummy_dir, file_name)
 
@@ -179,7 +190,7 @@ def run():
                 full_df = full_df.rename(columns=new_columns)
 
                 if save_extra:
-                    base_folder = os.path.join("edited_data", "extra_data")
+                    base_folder = os.path.join(edited_folder, "extra_data")
                 else:
                     category_folder_map = {
                         "Magnetic (MAG)": "MAG",
@@ -187,16 +198,32 @@ def run():
                         "Radiometric (SPEC)": "SPEC",
                         "Gravimetric (GRAV)": "GRAV"
                     }
-                    base_folder = os.path.join("edited_data", region, category_folder_map[data_type])
+                    base_folder = os.path.join(edited_folder, region, category_folder_map[data_type])
 
-                file_name = os.path.basename(selected_file)
+                # File name saved with data type suffix
+                file_root, file_ext = os.path.splitext(os.path.basename(selected_file))
+
+                # Map full data type to short code
+                category_folder_map = {
+                    "Magnetic (MAG)": "MAG",
+                    "Electromagnetic (EM)": "EM",
+                    "Radiometric (SPEC)": "SPEC",
+                    "Gravimetric (GRAV)": "GRAV"
+                }
+                data_type_code = category_folder_map[data_type]
+
+                # Append suffix to filename
+                file_name = f"{file_root}_{data_type_code}{file_ext}"
+
                 save_path = os.path.join(base_folder, file_name)
                 os.makedirs(os.path.dirname(save_path), exist_ok=True)
                 full_df.to_csv(save_path, index=False)
 
                 # === LOG MODIFIED FILE ===
                 log_path = "modified_log.txt"
-                relative_path = file_name  # just the file name
+                relative_path = os.path.basename(selected_file)  # original name, e.g. file_1.csv
+
+
                 if os.path.exists(log_path):
                     with open(log_path, "r") as log_file:
                         logged_files = log_file.read().splitlines()
@@ -208,6 +235,20 @@ def run():
                         log_file.write(f"{relative_path}\n")
 
                 st.success(f"File saved successfully: {save_path}")
+
+                # New log: Save actual saved file name to edited_files.txt
+                edited_file_log = "edited_files.txt"
+                if os.path.exists(edited_file_log):
+                    with open(edited_file_log, "r") as f:
+                        already_logged = set(line.strip() for line in f.readlines())
+                else:
+                    already_logged = set()
+
+                if file_name not in already_logged:
+                    with open(edited_file_log, "a") as f:
+                        f.write(f"{file_name}\n")
+
+
 
                 # === Append to daily log ===
                 from datetime import datetime
