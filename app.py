@@ -2,6 +2,13 @@ import streamlit as st
 from apps import csv_editor, min_max_extractor, file_consistency_checker, statistics, readme
 import os
 
+st.set_page_config(
+    page_title="⚡ ML Data Editor App",
+    page_icon="⚡",  # App Icon
+    layout="wide"   # Optional: gives you more screen space
+)
+
+
 # Sidebar navigation
 
 st.sidebar.markdown(
