@@ -4,7 +4,24 @@ from collections import defaultdict
 from datetime import datetime
 
 def run():
-    st.title("CSV Editing Statistics")
+    st.markdown(
+    """
+    <div style="
+        background-color: #e0c000;
+        padding: 0.75em;
+        border-radius: 8px;
+        border: 2px solid #006666;
+        text-align: center;
+    ">
+        <h2 style="color: white; font-weight: bold; margin: 0;">
+            CSV Editor Statistics
+        </h2>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
+
+    st.markdown("""---""")
 
     if st.button("🔄 Refresh & Update"):
         st.rerun()
