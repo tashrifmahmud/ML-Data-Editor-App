@@ -1,5 +1,5 @@
 import streamlit as st
-from apps import csv_editor, min_max_extractor, file_consistency_checker, statistics
+from apps import csv_editor, min_max_extractor, file_consistency_checker, statistics, readme
 import os
 
 # Sidebar navigation
@@ -55,6 +55,8 @@ elif page == "File Consistency Checker":
     file_consistency_checker.run()
 elif page == "Statistics":
     statistics.run()
+elif page == "README":
+    readme.run()
 
 
 # Sidebar input/output folder selection
@@ -83,3 +85,8 @@ os.makedirs(edited_folder, exist_ok=True)
 # Save folders in session state to access in other modules
 st.session_state["data_folder"] = data_folder
 st.session_state["edited_folder"] = edited_folder
+
+# Readme
+
+if st.sidebar.button("📘 README"):
+    st.session_state["page"] = "README"
