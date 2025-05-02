@@ -9,6 +9,7 @@ def run():
 
     # Streamlit App
     st.title("CSV Editor & Formatter")
+    st.markdown("""---""")
 
     # Select project folder
     data_folder = st.session_state.get("data_folder", "data")
@@ -162,6 +163,7 @@ def run():
             if delete:
                 delete_columns.append(col)
 
+        st.markdown("""---""")
 
         # New optional categorization for saving in edited_data
         st.write("### Save Destination")
