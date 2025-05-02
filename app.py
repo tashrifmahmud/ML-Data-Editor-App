@@ -3,23 +3,59 @@ from apps import csv_editor, min_max_extractor, file_consistency_checker, statis
 import os
 
 # Sidebar navigation
-st.sidebar.title("App Navigation")
-app_choice = st.sidebar.radio("Go to:", 
-                              ["CSV Editor", 
-                               "Min-Max Extractor",
-                               "File Consistency Checker",
-                               "Statistics"
-                               ])
+
+st.sidebar.markdown(
+    "<h2 style='text-align: center; font-size: 24px;'>App Navigation</h2>",
+    unsafe_allow_html=True
+)
+
+
+button_style = """
+<style>
+div.stButton > button {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 0.5em 1em;
+    background-color: #262730;
+    color: white;
+    border: 1px solid #444;
+    transition: 0.2s;
+}
+div.stButton > button:hover {
+    background-color: #393B4B;
+}
+</style>
+"""
+st.markdown(button_style, unsafe_allow_html=True)
+
+# Manual buttons instead of radio
+if st.sidebar.button("CSV Editor"):
+    st.session_state["page"] = "CSV Editor"
+
+if st.sidebar.button("Min-Max Extractor"):
+    st.session_state["page"] = "Min-Max Extractor"
+
+if st.sidebar.button("File Consistency Checker"):
+    st.session_state["page"] = "File Consistency Checker"
+
+if st.sidebar.button("Statistics"):
+    st.session_state["page"] = "Statistics"
+
 
 # App logic
-if app_choice == "CSV Editor":
+
+page = st.session_state.get("page", "CSV Editor")
+
+if page == "CSV Editor":
     csv_editor.run()
-elif app_choice == "Min-Max Extractor":
+elif page == "Min-Max Extractor":
     min_max_extractor.run()
-elif app_choice == "File Consistency Checker":
+elif page == "File Consistency Checker":
     file_consistency_checker.run()
-elif app_choice == "Statistics":
+elif page == "Statistics":
     statistics.run()
+
 
 # Sidebar input/output folder selection
 st.sidebar.write("### 📁 Folder Settings")
