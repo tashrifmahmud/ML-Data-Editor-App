@@ -18,6 +18,7 @@ A Streamlit-based interactive application for previewing, cleaning, renaming, an
 - Handles large CSVs efficiently (tested with multi-GB files)
 - File consistency checker app to detect duplicates, missing files or other errors
 - Min-Max extractor app to find the minimum and maximum values from data
+- Browsing function to choose custom paths for `data` and `edited_data` folder
 
 ---
 
@@ -39,7 +40,8 @@ ML-Data-Editor-App/
 ├── scripts/               # Min-Max extractor script
 ├── file_handler.py        # File management logic
 ├── app.py                 # Main streamlit app file
-├── modified_logs.txt      # All edited files will be logged here
+├── edited_files.txt       # All edited files will be logged here
+├── modified_logs.txt      # All modified files will be logged here
 ├── requirements.txt       # Install dependencies before running
 ├── run.bat                # Quickrun the app by running this
 ├── .gitignore
