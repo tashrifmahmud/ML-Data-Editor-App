@@ -92,7 +92,7 @@ This app is ideal for:
 
 
 
-[MIT License](LICENSE)
+[MIT License](LICENSE) | [CHANGELOG](https://github.com/tashrifmahmud/ML-Data-Editor-App/blob/main/CHANGELOG.md)
 
 ---
 
