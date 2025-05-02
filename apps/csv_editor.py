@@ -8,7 +8,23 @@ def run():
     STANDARD_COLUMNS = ["Coord_X", "Coord_Y", "resistivity", "conductivity", "K_corr", "TH_corr", "U_corr", "mag_res", "mag_dev", "altitude"]
 
     # Streamlit App
-    st.title("CSV Editor & Formatter")
+    st.markdown(
+    """
+    <div style="
+        background-color: #2e8b57;
+        padding: 0.75em;
+        border-radius: 8px;
+        border: 2px solid #006666;
+        text-align: center;
+    ">
+        <h2 style="color: white; font-weight: bold; margin: 0;">
+            CSV Editor & Formatting Tool
+        </h2>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
+
     st.markdown("""---""")
 
     # Select project folder
