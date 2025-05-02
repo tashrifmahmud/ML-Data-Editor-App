@@ -2,7 +2,24 @@ import streamlit as st
 import os
 
 def run():
-    st.title("File Consistency Checker")
+    st.markdown(
+    """
+    <div style="
+        background-color: teal;
+        padding: 0.75em;
+        border-radius: 8px;
+        border: 2px solid #006666;
+        text-align: center;
+    ">
+        <h2 style="color: white; font-weight: bold; margin: 0;">
+            File Consistency Checker
+        </h2>
+    </div>
+    """,
+    unsafe_allow_html=True
+    )
+    
+    st.markdown("""---""")
 
     if st.button("🔄 Refresh & Update"):
         st.rerun()
