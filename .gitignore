@@ -26,4 +26,6 @@ edited_data/
 locations/
 logs/
 
+# ignore all log files
+edited_files.txt
 modified_log.txt
