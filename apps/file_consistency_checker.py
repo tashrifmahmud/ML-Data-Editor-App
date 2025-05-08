@@ -39,7 +39,18 @@ def run():
         edited_saved_files = set()
     else:
         with open(edit_log_path, "r") as f:
-            edited_saved_files = set(line.strip() for line in f.readlines())
+            all_logged = set(line.strip() for line in f.readlines())
+
+        # Cross-check with actual files in edited_data
+        actual_files = set()
+        for root, dirs, files in os.walk(edited_root):
+            for file in files:
+                if file.endswith(".csv"):
+                    actual_files.add(file)
+
+        # Keep only those logged files that still exist
+        edited_saved_files = {f for f in all_logged if f in actual_files}
+
 
     with open(log_path, "r") as f:
         logged_files = [line.strip() for line in f.readlines()]
