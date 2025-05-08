@@ -21,8 +21,20 @@ def run():
     
     st.markdown("""---""")
 
+    # Refresh button
     if st.button("🔄 Refresh & Update"):
         st.rerun()
+
+    # Delete log files
+    if st.checkbox("Confirm log deletion"):
+        if st.button("⚠️ Delete All Log Files"):
+            try:
+                open("modified_log.txt", "w").close()
+                open("edited_files.txt", "w").close()
+                st.success("✅ Both log files have been cleared.")
+                st.rerun()
+            except Exception as e:
+                st.error(f"Failed to clear logs: {e}")
 
 
     log_path = "modified_log.txt"
