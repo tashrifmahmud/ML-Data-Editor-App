@@ -1,5 +1,5 @@
 import streamlit as st
-from apps import csv_editor, min_max_extractor, file_consistency_checker, statistics, readme
+from apps import csv_editor, min_max_extractor, file_consistency_checker, statistics, readme, config_editor
 import os
 import json
 
@@ -76,6 +76,9 @@ elif page == "Statistics":
     statistics.run()
 elif page == "README":
     readme.run()
+elif page == "Config":
+    import apps.config_editor as config_editor
+    config_editor.run()
 
 
 # Sidebar input/output folder selection
@@ -114,6 +117,8 @@ st.session_state["data_folder"] = data_folder
 st.session_state["edited_folder"] = edited_folder
 
 # Readme
+if st.sidebar.button("⚙️ Config"):
+    st.session_state["page"] = "Config"
 
 if st.sidebar.button("ℹ️ App Guide"):
     st.session_state["page"] = "README"
