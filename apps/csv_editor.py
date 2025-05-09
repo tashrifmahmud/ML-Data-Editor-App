@@ -2,10 +2,21 @@ import streamlit as st
 import pandas as pd
 import os
 from file_handler import list_csv_files, preview_csv
+import json
+
+COLUMNS_CONFIG_PATH = os.path.join("config", "columns.json")
+DEFAULT_COLUMNS = [
+    "Coord_X", "Coord_Y", "resistivity", "conductivity",
+    "K_corr", "TH_corr", "U_corr", "mag_res", "mag_dev", "altitude"
+]
 
 def run():
-    # Predefined column names
-    STANDARD_COLUMNS = ["Coord_X", "Coord_Y", "resistivity", "conductivity", "K_corr", "TH_corr", "U_corr", "mag_res", "mag_dev", "altitude"]
+    # Load from config or fallback
+    if os.path.exists(COLUMNS_CONFIG_PATH):
+        with open(COLUMNS_CONFIG_PATH, "r") as f:
+            STANDARD_COLUMNS = json.load(f)
+    else:
+        STANDARD_COLUMNS = DEFAULT_COLUMNS
 
     # Streamlit App
     st.markdown(
