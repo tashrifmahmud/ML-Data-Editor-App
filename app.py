@@ -116,7 +116,7 @@ os.makedirs(edited_folder, exist_ok=True)
 st.session_state["data_folder"] = data_folder
 st.session_state["edited_folder"] = edited_folder
 
-# Readme
+# Config and README buttons
 if st.sidebar.button("⚙️ Config"):
     st.session_state["page"] = "Config"
 
