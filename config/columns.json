@@ -1,0 +1,12 @@
+[
+  "Coord_X",
+  "Coord_Y",
+  "resistivity",
+  "conductivity",
+  "K_corr",
+  "TH_corr",
+  "U_corr",
+  "mag_res",
+  "mag_dev",
+  "altitude"
+]
