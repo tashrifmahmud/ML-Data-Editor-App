@@ -39,6 +39,8 @@ Accessible in all Apps:
 ---
 
 ### ✅ File Consistency Checker
+- **Confirm log deletion**: Click to open Log deletion button in UI.
+- **Delete All Log Files**: One-click button to clear both `modified_log.txt` and `edited_files.txt`.
 - Checks if every file logged in `modified_log.txt` was actually saved.
 - Warns about missing files, duplicate saves, and untracked files.
 
@@ -48,6 +50,13 @@ Accessible in all Apps:
 - **Total CSV Files**: Based on your selected input folder.
 - **Files Edited**: Based on log entries.
 - **Completion %**: Helps track overall progress day by day.
+
+---
+                
+### ⚙️ Config Manager
+- **Folder Path Configuration**: Modify the default data folder and edited data folder, saved persistently in `config/config.json`.
+- **Edit Standard Column Names**: Update the list of column names used for renaming in the CSV Editor.
+- **Reset to Default**: Restore either path or column name settings to their original defaults.
 
 ---
 
@@ -71,7 +80,13 @@ Accessible from the sidebar:
 - **edited_data\logged_only_files**: Contains dummy `.csv` files for datasets that were marked as “log only” but not edited.
                 
 ---
+                
+### 🧠 Config Files
+- **config/config.json**: Stores the user's most recently selected input/output folder paths.
+- **config/columns.json**: Stores the editable list of column names used in the CSV Editor.
+
+---               
 
 """)
 
-    st.info("For more information please check out the detailed GITHUB repo of this project.")
+    st.info("For more information please check out the detailed [GITHUB](https://github.com/tashrifmahmud/ML-Data-Editor-App) repo of this project.")
