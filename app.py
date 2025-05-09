@@ -86,8 +86,8 @@ st.sidebar.write("### 📁 Folder Settings")
 st.sidebar.caption("Paste full path to your input folder.")
 
 # Use config values as defaults
-data_folder = st.sidebar.text_input("Input Folder (raw CSVs)", value=config.get("data_folder", "data"))
-edited_folder = st.sidebar.text_input("Output Folder (for edits)", value=config.get("edited_folder", "edited_data"))
+data_folder = st.sidebar.text_input("Input Folder (raw CSVs)", value=config.get("data_folder", "data"), key="sidebar_input_folder")
+edited_folder = st.sidebar.text_input("Output Folder (for edits)", value=config.get("edited_folder", "edited_data"), key="sidebar_edited_folder")
 
 # If user changed paths, update config
 if data_folder != config.get("data_folder") or edited_folder != config.get("edited_folder"):
