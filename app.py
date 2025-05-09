@@ -1,6 +1,7 @@
 import streamlit as st
 from apps import csv_editor, min_max_extractor, file_consistency_checker, statistics, readme
 import os
+import json
 
 st.set_page_config(
     page_title="⚡ ML Data Editor App",
@@ -8,6 +9,17 @@ st.set_page_config(
     layout="wide"   # Optional: gives you more screen space
 )
 
+# Config folder and file
+CONFIG_DIR = "config"
+CONFIG_PATH = os.path.join(CONFIG_DIR, "config.json")
+os.makedirs(CONFIG_DIR, exist_ok=True)
+
+# Load existing config if exists
+if os.path.exists(CONFIG_PATH):
+    with open(CONFIG_PATH, "r") as f:
+        config = json.load(f)
+else:
+    config = {"data_folder": "data", "edited_folder": "edited_data"}
 
 # Sidebar navigation
 
@@ -70,8 +82,16 @@ elif page == "README":
 st.sidebar.write("### 📁 Folder Settings")
 st.sidebar.caption("Paste full path to your input folder.")
 
-data_folder = st.sidebar.text_input("Input Folder (raw CSVs)", value="data")
-edited_folder = st.sidebar.text_input("Output Folder (for edits)", value="edited_data")
+# Use config values as defaults
+data_folder = st.sidebar.text_input("Input Folder (raw CSVs)", value=config.get("data_folder", "data"))
+edited_folder = st.sidebar.text_input("Output Folder (for edits)", value=config.get("edited_folder", "edited_data"))
+
+# If user changed paths, update config
+if data_folder != config.get("data_folder") or edited_folder != config.get("edited_folder"):
+    config["data_folder"] = data_folder
+    config["edited_folder"] = edited_folder
+    with open(CONFIG_PATH, "w") as f:
+        json.dump(config, f, indent=2)
 
 
 # #### Debugging: Show all files in the input folder ####
